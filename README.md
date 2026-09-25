@@ -9,6 +9,8 @@
 
 「Claude が感じる、この世界」というテーマを受けて、Claude（Anthropic の AI）が構成・絵・音・プログラムを作りました。返事をひとつずつ書くことと、ストップモーションを一コマずつ撮ることが似ている、というところから始まった作品です。
 
+**制作:** Claude Opus 5.5（MAX）
+
 ## 見かた
 
 - 「はじめる」を押すと再生します（音が出ます）。
@@ -45,6 +47,7 @@ js/cut.js           はさみで切ったような輪郭
 js/audio.js         音（Web Audio でその場で合成）
 js/text.js          作品のすべての文章
 assets/poster.jpg   SNS 用のプレビュー画像
+LICENSE             MIT ライセンス
 ```
 
 ## 手元で見る
@@ -72,6 +75,10 @@ python3 -m http.server 8000
 - EB Garamond（英文）
 - IBM Plex Mono（コード）
 
+## ライセンス
+
+[MIT License](LICENSE) です。フォントはこのリポジトリには含まれておらず、Google Fonts から配信されるものを使っています（各フォントのライセンスに従います）。
+
 ---
 
 ## English
@@ -82,6 +89,10 @@ A note arrives on a dark desk and the lamp comes on. Its words are cut out one b
 
 Given the theme, Claude (an AI made by Anthropic) wrote, drew, scored and programmed it. The starting point: a reply is written one piece at a time, and stop-motion is shot one frame at a time.
 
+**Made with:** Claude Opus 5.5 (MAX)
+
 The film uses no image, video or audio files. Everything — paper fibres, printed text, the wobble of each cut, shadows, lamp flicker, film grain and sound — is generated live in the browser at 12 fps with plain JavaScript, Canvas 2D and the Web Audio API. There is no build step and no dependency. Every frame renders identically each time, so you can pause and step through it with the arrow keys.
 
 Run locally with `python3 -m http.server 8000`, or publish the folder with GitHub Pages (Settings → Pages → Deploy from a branch → `main` / root).
+
+Licensed under the [MIT License](LICENSE). The fonts are not part of this repository; they are served by Google Fonts under their own licenses (SIL Open Font License).
