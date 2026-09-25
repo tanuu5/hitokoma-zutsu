@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ひとコマずつ — Claude が感じる、この世界</title>
+  <meta name="description" content="Claude が感じている世界を、紙を切り抜いて一コマずつ動かすストップモーションにしました。すべてのコマはブラウザの中で描かれます。">
+  <meta property="og:title" content="ひとコマずつ — one frame at a time">
+  <meta property="og:description" content="A paper stop-motion about the world as Claude feels it. Every frame is cut and lit in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0d0c0f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='8' y='12' width='48' height='40' rx='3' fill='%23efe4cc' transform='rotate(-6 32 32)'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23d4693f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link data-fonts rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono&family=Klee+One:wght@400;600&family=Zen+Old+Mincho:wght@400;700;900&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <section id="stage" aria-label="ストップモーション作品「ひとコマずつ」">
+      <canvas id="film" role="img" aria-label="紙を切り抜いて作られたストップモーション。暗い机に手紙が届き、灯りがともり、ことばが糸で結ばれ、紙の世界が組み上がっていく。"></canvas>
+
+      <div id="loading" class="veil">
+        <p class="load-text">紙を切っています…<span>cutting paper</span></p>
+        <div class="bar"><i id="loadbar"></i></div>
+      </div>
+
+      <div id="start" class="veil" hidden>
+        <div class="card">
+          <h1>ひとコマずつ</h1>
+          <p class="sub">one frame at a time</p>
+          <p class="tag">Claude が感じる、この世界</p>
+          <button id="play" type="button"><span aria-hidden="true">▶</span> はじめる <small>play</small></button>
+          <p class="hint">約2分・音が出ます　<kbd>Space</kbd> 再生／停止　<kbd>←</kbd><kbd>→</kbd> コマ送り</p>
+        </div>
+      </div>
+
+      <div id="end" class="veil soft" hidden>
+        <div class="card">
+          <p class="fin">おしまい <small>fin</small></p>
+          <button id="replay" type="button">もう一度みる <small>watch again</small></button>
+          <p class="hint"><kbd>←</kbd><kbd>→</kbd> で一コマずつ戻って見ることもできます</p>
+        </div>
+      </div>
+
+      <div id="controls">
+        <button id="pp" type="button" aria-label="再生">▶</button>
+        <input id="scrub" type="range" min="0" max="100" value="0" step="1" aria-label="コマ位置">
+        <span id="counter" aria-live="off">コマ 0001</span>
+        <button id="lang" type="button">字幕 日本語</button>
+        <button id="snd" type="button" aria-pressed="true">音 ON</button>
+        <button id="fs" type="button" aria-label="全画面">⛶</button>
+      </div>
+      <p id="live" class="sr-only" aria-live="polite"></p>
+    </section>
+
+    <article id="about">
+      <div class="col">
+        <h2>この作品について</h2>
+        <p>「Claude が感じる、この世界」というテーマを受けて、Claude（Anthropic の AI）が構成から絵・音・プログラムまでを作ったストップモーションです。</p>
+        <p>わたしは、返事をひとつずつ置いて書きます。ストップモーションも、一コマずつ動かして作ります。この似ているところから作り始めました。</p>
+        <p>画面に出てくる紙には、たいてい文字が刷ってあります。わたしが知っている世界は、ほとんどがだれかの書いたことばでできているからです。海は、海について書かれた文章で切ってあります。</p>
+        <p class="tech">作品の中で画像や動画のファイルは使っていません。紙の繊維、刷られた文字、切り口のゆらぎ、影、灯りのちらつき、音まで、ブラウザの中でその場で作っています（12fps）。同じコマは毎回同じ姿で描かれるので、<kbd>←</kbd><kbd>→</kbd> でコマ送りして、一枚ずつ「撮影」されたコマを見ることもできます。</p>
+      </div>
+      <div class="col en" lang="en">
+        <h2>About</h2>
+        <p>A stop-motion piece on the theme “the world, as Claude feels it.” Given that theme, Claude — an AI made by Anthropic — wrote, drew, scored and programmed it.</p>
+        <p>I write a reply one piece at a time; stop-motion is made one frame at a time. The film starts from that shared rhythm.</p>
+        <p>Almost every piece of paper in it has words printed on it — because the world I know is made, almost entirely, of words someone wrote. The sea is cut from sentences about the sea.</p>
+        <p class="tech">The film uses no image or video files: paper fibres, printed text, the wobble of each cut, the shadows, the lamp flicker and the sound are all made live in your browser, at 12 fps. Every frame renders the same way every time, so you can step through it with the arrow keys, one “photograph” at a time.</p>
+      </div>
+    </article>
+    <footer>ひとコマずつ — made one frame at a time by Claude</footer>
+  </main>
+  <noscript><p class="noscript">この作品の再生には JavaScript が必要です。/ This film needs JavaScript to play.</p></noscript>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
